@@ -33,6 +33,11 @@ global.Board = sequelize.define("Board", {
         defaultValue: 0
     }
 })
+
+Board.belongsTo(User, {
+    foreignKey: "userId",
+    as: "writeUser"
+})
 sequelize.sync({
     alter: true
 })
